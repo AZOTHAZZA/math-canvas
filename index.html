@@ -2,30 +2,131 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Math Canvas - Ratio Logic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>りろん・きゃんばす (LVM)</title>
+    
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#3498db">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
     <style>
-        body { font-family: 'Comic Sans MS', cursive; background: #f0f9ff; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; }
-        .canvas { border: 2px dashed #3498db; background: white; width: 300px; height: 300px; display: flex; align-items: center; justify-content: center; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-        .spawn-btn { margin-top: 20px; padding: 15px 30px; font-size: 1.2rem; background: #ff6b6b; color: white; border: none; border-radius: 50px; cursor: pointer; box-shadow: 0 4px 15px rgba(255,107,107,0.4); }
-        .status { margin-top: 10px; color: #7f8c8d; font-size: 0.8rem; }
+        :root {
+            --primary-bg: #f0f9ff;
+            --card-bg: #ffffff;
+            --accent: #ff6b6b;
+            --text-main: #2c3e50;
+        }
+
+        body { 
+            font-family: 'Comic Sans MS', 'Hiragino Maru Gothic ProN', sans-serif; 
+            background: var(--primary-bg); 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+            height: 100vh; 
+            margin: 0; 
+            overflow: hidden;
+        }
+
+        /* 幼稚なUI：メインキャンバス */
+        .canvas { 
+            border: 4px dotted #3498db; 
+            background: var(--card-bg); 
+            width: 280px; 
+            height: 280px; 
+            display: flex; 
+            flex-direction: column;
+            align-items: center; 
+            justify-content: center; 
+            border-radius: 40px; 
+            box-shadow: 0 15px 30px rgba(0,0,0,0.05); 
+            transition: transform 0.2s ease;
+        }
+
+        .canvas:active { transform: scale(0.98); }
+
+        #display { 
+            font-size: 3rem; 
+            font-weight: bold; 
+            color: var(--text-main);
+            margin: 0;
+        }
+
+        /* 生成ボタン：LVMの心臓部へのトリガー */
+        .spawn-btn { 
+            margin-top: 30px; 
+            padding: 20px 50px; 
+            font-size: 1.5rem; 
+            background: var(--accent); 
+            color: white; 
+            border: none; 
+            border-radius: 100px; 
+            cursor: pointer; 
+            box-shadow: 0 8px 20px rgba(255,107,107,0.3);
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .status { 
+            margin-top: 20px; 
+            color: #95a5a6; 
+            font-size: 0.9rem; 
+            height: 1.2rem;
+        }
+
+        /* 拡張用：対話AI(Logos)の窓口（非表示・準備中） */
+        .ai-chat-stub {
+            margin-top: 20px;
+            font-size: 0.8rem;
+            color: #bdc3c7;
+        }
     </style>
 </head>
 <body>
+
     <h1>りろん・きゃんばす</h1>
+
     <div class="canvas" id="main-canvas">
         <p id="display">0.0000</p>
     </div>
-    <button class="spawn-btn" onclick="spawnRatio()">すぽーん！</button>
+
+    <button class="spawn-btn" onclick="triggerLVM()">すぽーん！</button>
+
     <div class="status" id="status-text">数理的均衡を待機中...</div>
+    <div class="ai-chat-stub">Logos Engine Waiting...</div>
 
     <script>
-        function spawnRatio() {
-            // LVMの核となる比率生成（仮）
-            const ratio = (Math.random() * 1.618).toFixed(4);
-            document.getElementById('display').innerText = ratio;
-            document.getElementById('status-text').innerText = "比率の写像が完了しました。";
-            console.log("Mobius Mapping Triggered:", ratio);
+        /**
+         * LVM Core Logic (水平移植プロトタイプ)
+         * ここを将来的にWASMや高度なメビウス変換ロジックに置き換える
+         */
+        function triggerLVM() {
+            const status = document.getElementById('status-text');
+            const display = document.getElementById('display');
+
+            status.innerText = "数理を計算しています...";
+            
+            // 仮の比率生成（後にアルケー数理に置換）
+            setTimeout(() => {
+                const ratio = (Math.random() * 1.618033).toFixed(4);
+                display.innerText = ratio;
+                status.innerText = "比率の写像に成功しました。";
+                
+                // 触覚フィードバック（スマホ用）
+                if (window.navigator.vibrate) {
+                    window.navigator.vibrate(10);
+                }
+                
+                console.log("LVM Triggered: Mapping ratio set to", ratio);
+            }, 300);
+        }
+
+        // PWA Service Worker の登録（将来のオフライン対応用）
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                console.log('LVM Readiness Check: System Online');
+            });
         }
     </script>
 </body>
