@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Canvas - Ratio Logic</title>
+    <style>
+        body { font-family: 'Comic Sans MS', cursive; background: #f0f9ff; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; }
+        .canvas { border: 2px dashed #3498db; background: white; width: 300px; height: 300px; display: flex; align-items: center; justify-content: center; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .spawn-btn { margin-top: 20px; padding: 15px 30px; font-size: 1.2rem; background: #ff6b6b; color: white; border: none; border-radius: 50px; cursor: pointer; box-shadow: 0 4px 15px rgba(255,107,107,0.4); }
+        .status { margin-top: 10px; color: #7f8c8d; font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+    <h1>りろん・きゃんばす</h1>
+    <div class="canvas" id="main-canvas">
+        <p id="display">0.0000</p>
+    </div>
+    <button class="spawn-btn" onclick="spawnRatio()">すぽーん！</button>
+    <div class="status" id="status-text">数理的均衡を待機中...</div>
+
+    <script>
+        function spawnRatio() {
+            // LVMの核となる比率生成（仮）
+            const ratio = (Math.random() * 1.618).toFixed(4);
+            document.getElementById('display').innerText = ratio;
+            document.getElementById('status-text').innerText = "比率の写像が完了しました。";
+            console.log("Mobius Mapping Triggered:", ratio);
+        }
+    </script>
+</body>
+</html>
