@@ -1,0 +1,23 @@
+{
+  "name": "Logos Logic Notebook",
+  "short_name": "Logos",
+  "description": "Formal Logic and Philosophy Research Tool",
+  "start_url": "index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#050505",
+  "theme_color": "#050505",
+  "icons": [
+    {
+      "src": "https://via.placeholder.com/192/050505/444444?text=%CE%BB",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://via.placeholder.com/512/050505/444444?text=%CE%BB",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

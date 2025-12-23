@@ -1,0 +1,30 @@
+{
+  "SUMISHIN_SBI": {
+    "name": "住信SBIネット銀行",
+    "type": "Net Bank",
+    "color": "indigo",
+    "features": ["証券連携", "ハイブリッド預金"],
+    "fee": 0
+  },
+  "GMO_AOZORA": {
+    "name": "GMOあおぞらネット銀行",
+    "type": "Digital Bank",
+    "color": "cyan",
+    "features": ["法人連携", "高速振込"],
+    "fee": 0
+  },
+  "BINANCE_CEX": {
+    "name": "Binance",
+    "type": "CEX",
+    "color": "yellow",
+    "features": ["ステーキング", "現物取引"],
+    "fee": 2000
+  },
+  "UNISWAP_DEX": {
+    "name": "Uniswap V3",
+    "type": "DEX",
+    "color": "pink",
+    "features": ["流動性提供", "スワップ"],
+    "fee": 3000
+  }
+}

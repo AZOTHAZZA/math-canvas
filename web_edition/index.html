@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="manifest" href="manifest.json">
+    <title>Logos Logic Notebook</title>
+    <style>
+        :root { --bg-dark: #050505; --text-dim: #444; --text-hidden: #333; }
+        body { 
+            background-color: var(--bg-dark); 
+            color: var(--text-dim); 
+            font-family: 'Times New Roman', serif; 
+            margin: 0; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+            height: 100vh; 
+            overflow: hidden;
+            text-align: center;
+        }
+        #container { padding: 20px; border: 1px solid #111; max-width: 85%; }
+        h1 { font-size: 1.1rem; letter-spacing: 0.4rem; color: #1a1a1a; margin-bottom: 2rem; user-select: none; }
+        .logic-formula { font-size: 0.9rem; margin: 12px 0; font-style: italic; color: var(--text-dim); user-select: none; }
+        
+        /* 秘密のゲート：見た目には他の文字と区別がつきません */
+        .secret-gate { 
+            cursor: default; 
+            color: inherit;
+            -webkit-tap-highlight-color: transparent; /* タップ時の青い枠を消す */
+        }
+        .secret-gate:active { color: #111; } /* 押した瞬間にわずかに色が変わるが、ほぼ気づかれない */
+
+        .status-line { font-family: monospace; font-size: 9px; margin-top: 30px; border-top: 1px solid #111; padding-top: 10px; color: #222; }
+        
+        @media (max-width: 600px) {
+            h1 { font-size: 0.9rem; }
+            .logic-formula { font-size: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="container">
+        <h1>LOGOS LOGIC ENGINE</h1>
+        
+        <div class="logic-formula">P ∴ Q ≡ ¬P ∨ Q</div>
+        
+        <div class="logic-formula">
+            ∀x(Fx <span class="secret-gate" onclick="location.href='LVM_MASTER_CONTROL.html'">→</span> Gx)
+        </div>
+        
+        <div class="logic-formula">□(A → B) → (□A → □B)</div>
+        <div class="logic-formula">"The limits of my language mean the limits of my world."</div>
+
+        <div class="status-line">
+            SYSTEM_ID: LVM-01 | SIMULATION_MODE: ACADEMIC_RESEARCH<br>
+            NODE_STATUS: DISCONNECTED_FROM_PUBLIC_NET
+        </div>
+    </div>
+
+    <script>
+        // Service Workerの登録（オフライン対応）
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js')
+            .then(() => console.log('Logos Shield: PERSISTENT'));
+        }
+
+        // 覗き見防止用のダミーコンソールログ
+        console.log("Logos Logic Notebook v1.0.2 - Ready");
+        console.log("Analyzing Wittgenstein Tractatus 5.6...");
+    </script>
+</body>
+</html>

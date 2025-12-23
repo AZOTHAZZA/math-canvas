@@ -1,0 +1,20 @@
+{
+  "BINANCE_CEX": {
+    "api_endpoint": "https://api.binance.com/v3",
+    "trading_pairs": ["BTC/JPY", "ETH/JPY", "USDT/JPY"],
+    "withdrawal_limit_daily": 10000000,
+    "security_layer": "2FA_LOGOS_BYPASS",
+    "liquidity_depth": "HIGH",
+    "fiat_onramp": true
+  },
+  "UNISWAP_DEX": {
+    "protocol_version": "V3",
+    "network": "Ethereum_Mainnet",
+    "pools": [
+      { "pair": "WETH/USDC", "fee_tier": "0.05%" },
+      { "pair": "WBTC/WETH", "fee_tier": "0.3%" }
+    ],
+    "slippage_tolerance": "0.5%",
+    "logic_connector": "identities/lvm_id_clone.js"
+  }
+}
